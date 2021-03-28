@@ -1,0 +1,21 @@
+---
+
+filebeat_version: 7
+filebeat_output_logstash: localhost:5044
+
+filebeat_input_nginx_enable: false
+filebeat_input_nginx_path: /var/log/nginx/*.log
+filebeat_input_caddy_enable: false
+filebeat_input_caddy_path: /var/log/caddy/*.log
+filebeat_input_php_fpm_enable: false
+filebeat_input_php_fpm_path: /var/log/php*-fpm.log
+filebeat_input_cloud_init_enable: false
+filebeat_input_cloud_init_path: /var/log/cloud-init*.log
+filebeat_input_dpkg_enable: false
+filebeat_input_dpkg_path: /var/log/dpkg.log
+filebeat_input_auth_enable: false
+filebeat_input_auth_path: /var/log/auth.log
+filebeat_input_kern_enable: false
+filebeat_input_kern_path: /var/log/kern.log
+filebeat_input_redis_enable: false
+filebeat_input_redis_path: /var/log/redis.log

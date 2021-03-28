@@ -1,0 +1,67 @@
+output.logstash:
+  hosts: ["{{ filebeat_output_logstash }}"]
+
+filebeat.inputs:
+{% if filebeat_input_nginx_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_nginx_path }}
+  fields:
+    index: nginx
+{% endif %}
+
+{% if filebeat_input_caddy_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_caddy_path }}
+  fields:
+    index: caddy
+{% endif %}
+
+{% if filebeat_input_php_fpm_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_php_fpm_path }}
+  fields:
+    index: php-fpm
+{% endif %}
+
+{% if filebeat_input_cloud_init_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_cloud_init_path }}
+  fields:
+    index: cloud-init
+{% endif %}
+
+{% if filebeat_input_dpkg_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_dpkg_path }}
+  fields:
+    index: dpkg
+{% endif %}
+
+{% if filebeat_input_auth_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_auth_path }}
+  fields:
+    index: auth
+{% endif %}
+
+{% if filebeat_input_kern_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_kern_path }}
+  fields:
+    index: kern
+{% endif %}
+
+{% if filebeat_input_redis_enable %}
+- type: log
+  paths:
+    - {{ filebeat_input_redis_path }}
+  fields:
+    index: redis
+{% endif %}
